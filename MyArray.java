@@ -7,16 +7,15 @@ public class MyArray implements WorkWithArrays {
 
     protected int size;
     public int[] array;
-    public int[] arrayCopy;
 
     protected MyArray(int size) {
         this.size = size;
         this.array = new int[size];
     }
 
+
     public int[] copyArray() {      // МЕТОД ДЛЯ СОЗДАНИЯ КОПИИ МАССИВА
-        this.arrayCopy = Arrays.copyOf(array, array.length);
-        return arrayCopy;
+        return Arrays.copyOf(array, array.length);
     }
 
     @Override
@@ -34,7 +33,7 @@ public class MyArray implements WorkWithArrays {
 //        for (int i = 0; i < size; i++) { // Чтобы при вызове метода отображались только заполненные ячейки, без пустых с default значением 0!
 //         System.out.println(array[i]);  // Если установить i<array.length, то будет выводиться весь массив и с ячейками заполненнми 0.
 //        }
-        System.out.println(Arrays.toString(array)); // только для удобства просмотра в консоли (т.к. число массива 100), НО! выводит также и "пустые" ячейки массива, которые перезаписаны.
+        System.out.print(Arrays.toString(array)); // только для удобства просмотра в консоли (т.к. число массива 100), НО! выводит также и "пустые" ячейки массива, которые перезаписаны.
     }
 
     @Override
