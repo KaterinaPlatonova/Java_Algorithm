@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TurnTheString_Impl implements TurnTheString_Interface {
+public class TurnTheStringImpl implements ITurnTheString {
 
     protected String word; // переменная для сохранения введенного пользователем слова
     protected char[] wordArray; // массив для сохранения введенного слова посимвольно
@@ -9,9 +9,9 @@ public class TurnTheString_Impl implements TurnTheString_Interface {
 
     Scanner scan = new Scanner(System.in);
 
-    protected TurnTheString_Impl(){
+    protected TurnTheStringImpl(){
         currentSize = 0;
-        TurnTheString_Impl.this.userWord(); // запускает метод считывания введенного слова и количества букв
+        TurnTheStringImpl.this.userWord(); // запускает метод считывания введенного слова и количества букв
         this.wordArray = new char[wordSize];
     }
 
