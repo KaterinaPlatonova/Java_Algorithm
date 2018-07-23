@@ -1,4 +1,4 @@
-public interface TurnTheString_Interface {
+public interface ITurnTheString {
 
     void push(char character);
 

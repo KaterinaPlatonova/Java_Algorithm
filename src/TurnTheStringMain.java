@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
-public class TurnTheString_Main {
+public class TurnTheStringMain {
 
     public static void main(String[] args) {
 
-        TurnTheString_Impl userWord = new TurnTheString_Impl();
+        TurnTheStringImpl userWord = new TurnTheStringImpl();
 
         for (int i = 0; i < userWord.word.length(); i++) { // заполнение массива в объекте userWord посимвольно буквами из введенного слова
             userWord.push(userWord.word.charAt(i));

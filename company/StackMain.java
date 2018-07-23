@@ -3,7 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Stack_Main {
+public class StackMain {
     static Random rand = new Random();
 
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Stack_Main {
 /*
         Стек
 */
-        Stack_Impl stackTest = new Stack_Impl(5);
+        StackImpl stackTest = new StackImpl(5);
 
         while (!stackTest.isFull()) {
             int randomNumber = rand.nextInt(stackTest.getCurrentSize() + 1);
@@ -34,7 +34,7 @@ public class Stack_Main {
         Очередь
 */
         System.out.println("****************");
-        Queue_Impl queueTest = new Queue_Impl(5);
+        QueueImpl queueTest = new QueueImpl(5);
 
         while (!queueTest.isFull()) {
             int randomNumber = rand.nextInt(queueTest.getCurrentSize() + 1);

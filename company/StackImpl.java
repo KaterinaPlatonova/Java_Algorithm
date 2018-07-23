@@ -1,11 +1,11 @@
 package com.company;
 
-public class Stack_Impl implements Stack_Interface {
+public class StackImpl implements IStack {
 
     private int[] arrayForStack;
     private int currentSize;
 
-    protected Stack_Impl(int arraySize) {
+    protected StackImpl(int arraySize) {
         this.currentSize = 0;
         arrayForStack = new int[arraySize];
     }

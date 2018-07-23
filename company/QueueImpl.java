@@ -1,6 +1,6 @@
 package com.company;
 
-public class Queue_Impl implements Queue {
+public class QueueImpl implements Queue {
 
     public static final int REAR_DEFAULT = -1;
     public static final int FRONT_DEFAULT = 0;
@@ -10,7 +10,7 @@ public class Queue_Impl implements Queue {
     private int front;
     private int rear;
 
-    public Queue_Impl(int currentSize) {
+    public QueueImpl(int currentSize) {
         this.currentSize = 0;
         this.front = FRONT_DEFAULT;
         this.rear = REAR_DEFAULT;
