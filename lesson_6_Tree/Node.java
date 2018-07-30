@@ -50,6 +50,7 @@ public class Node {
         return false;
     }
 
+
     public boolean hasOnlyOneChild() {
         return leftChild != null ^ rightChild != null;
     }

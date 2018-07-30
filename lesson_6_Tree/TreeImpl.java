@@ -10,6 +10,7 @@ public class TreeImpl implements Tree {
         Node parent;
     }
 
+
     @Override
     public void insert(Person person) {
         Node newNode = new Node(person);
@@ -28,6 +29,7 @@ public class TreeImpl implements Tree {
         }
         currentSize++;
     }
+
 
     public Node findParentForInsert(int key) { // метод для поиска родительского узла
         Node currentNode = root;
@@ -142,7 +144,7 @@ public class TreeImpl implements Tree {
         }
 
         if (successor != node.getRightChild()) {
-            //Дочерние элементы successor не теряем, а отдаем его родителю
+            //Дочерние элементы successor, отдаем его родителю
             successorParent.setLeftChild(successor.getRightChild());
         }
 
@@ -182,23 +184,27 @@ public class TreeImpl implements Tree {
     }
 
     @Override
-    public void traverse(TraverseMode traverseMode) {
+    public boolean traverse(TraverseMode traverseMode) {
         switch (traverseMode) {
-            case PRE_ORDER:
+            case PRE_ORDER: // ПРЯМОЙ ОБХОД
                 preOrder(root);
                 break;
-            case POST_ORDER:
+            case POST_ORDER: // ОБРАТНЫЙ ОБХОД
                 postOrder(root);
                 break;
-            case IN_ORDER:
+            case IN_ORDER: // СИММЕТРИЧНЫЙ ОБХОД
                 inOrder(root);
+                break;
+            case isBalanced:
+                isBalanced(root);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown traverse mode: " + traverseMode);
         }
+        return false;
     }
 
-    private void preOrder(Node node) {
+    private void preOrder(Node node) { // ПРЯМОЙ ОБХОД
         if (node != null) {
             node.display();
             preOrder(node.getLeftChild());
@@ -206,7 +212,7 @@ public class TreeImpl implements Tree {
         }
     }
 
-    private void postOrder(Node node) {
+    private void postOrder(Node node) { // ОБРАТНЫЙ ОБХОД
         if (node != null) {
             preOrder(node.getLeftChild());
             preOrder(node.getRightChild());
@@ -214,12 +220,24 @@ public class TreeImpl implements Tree {
         }
     }
 
-    private void inOrder(Node node) {
+    private void inOrder(Node node) { // СИММЕТРИЧНЫЙ ОБХОД
         if (node != null) {
             preOrder(node.getLeftChild());
             node.display();
             preOrder(node.getRightChild());
         }
+    }
+
+    @Override
+    public boolean isBalanced(Node node) {
+        return (node == null) ||
+                isBalanced(node.getLeftChild()) &&
+                        isBalanced(node.getRightChild()) &&
+                        Math.abs(height(node.getLeftChild()) - height(node.getRightChild())) <= 1;
+    }
+
+    private int height(Node node) {
+        return node == null ? 0 : 1 + Math.max(height(node.getLeftChild()), height(node.getRightChild()));
     }
 
 }

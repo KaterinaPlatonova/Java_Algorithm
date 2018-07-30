@@ -5,7 +5,7 @@ public interface Tree {
     enum TraverseMode {
         PRE_ORDER, //прямой обход
         POST_ORDER, //обратный обход
-        IN_ORDER, //симметричный обход
+        IN_ORDER, isBalanced, //симметричный обход
     }
 
     void insert(Person person);
@@ -20,5 +20,8 @@ public interface Tree {
 
     Person getRoot();
 
-    void traverse(TraverseMode traverseMode);
+    boolean traverse(TraverseMode traverseMode);
+
+    boolean isBalanced(Node node);
+
 }
